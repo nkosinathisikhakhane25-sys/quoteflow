@@ -41,3 +41,7 @@ To verify isolation, create two throwaway accounts on `/login` and confirm both 
 Keep `.env.local` and `.env.test.local` only on your machine; do not add test-account credentials to Vercel. The PWA needs a network connection for Supabase data and does not queue offline changes.
 
 The ownership migration and two-account isolation check passed against the current Supabase project. Assign any preserved unowned enquiries to verified owners before those users need access. Never put a service-role or secret key in browser environment variables.
+
+## Prince Solar Solutions demo
+
+Open `/demo/solar` for an interactive, login-free client demo with eight fictional solar enquiries. Add enquiries, edit quote amounts/statuses/follow-up dates/notes, use search and filters, and explore the pipeline. Demo edits persist in that browser's local storage; **Reset demo** restores the examples. This route never connects to Supabase or touches production customer records. After deploying, share `https://<your-domain>/demo/solar` with the client. Pricing shown is sample data, not a live solar quotation.

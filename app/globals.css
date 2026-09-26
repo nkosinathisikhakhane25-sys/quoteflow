@@ -270,3 +270,7 @@ td, .money, .text-button { color: var(--ink); }
   .overview .support-metrics > div { grid-column: 1; }
 }
 @media (max-width: 700px) { .overview .hero-metric { grid-row: auto; } }
+.demo-banner { order: 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 18px; border: 1px solid #35547b; border-radius: 8px; background: #11243d; }
+.demo-banner strong { color: #bedbff; font-size: 14px; }
+.demo-banner p { margin: 5px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+@media (max-width: 700px) { .demo-banner { grid-column: 1 / -1; align-items: flex-start; flex-direction: column; } .demo-banner .secondary { min-height: 44px; } }
