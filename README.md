@@ -45,3 +45,11 @@ The ownership migration and two-account isolation check passed against the curre
 ## Prince Solar Solutions demo
 
 Open `/demo/solar` for an interactive, login-free client demo with eight fictional solar enquiries. Add enquiries, edit quote amounts/statuses/follow-up dates/notes, use search and filters, and explore the pipeline. Demo edits persist in that browser's local storage; **Reset demo** restores the examples. This route never connects to Supabase or touches production customer records. After deploying, share `https://<your-domain>/demo/solar` with the client. Pricing shown is sample data, not a live solar quotation.
+
+### Elevate booking page
+
+`/book` is a public, mobile-first booking page. `POST /api/bookings` validates booking details and inserts into the separate `demo_bookings` Supabase table. Apply `supabase/migrations/20260927000000_demo_bookings.sql` to the configured project before accepting live bookings. The existing `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` variables are used; no service-role key is needed.
+
+The intake table permits public inserts only, with no public read or update access. Review bookings through trusted Supabase administration. Records include `source = Booking Link`, `status = Demo Booked`, and a server-generated `created_at`, ready for a later CRM import. No calendar integration or automated confirmation email is configured; the selected SAST time is a preference that the team confirms manually. If persistence is unavailable, the form shows an error and retains the entered details.
+
+The two local SVGs under `public/book` are explicitly labelled demo layout placeholders and contain no customer results. Replace them with approved dashboard screenshots when available. Publishing at `elevate.com/book` requires deploying this project and connecting the domain.
